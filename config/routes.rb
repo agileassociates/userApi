@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   namespace :api, defaults: { format: :json } do
     # We are going to list our resources here
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
       resources :users, :only => [:show, :create, :update, :destroy]
       resources :sessions, :only => [:create, :destroy]
       resources :posts, :only => [:index]
+      resources :photos, :only => [:create, :index]
 
       post 'users/update' => 'users#update'
 
