@@ -12,6 +12,10 @@ class Api::V1::PhotosController < ApplicationController
     end
   end
 
+  def new
+    
+  end
+
   def index
     @photos = Photo.all
     render json: @photos
