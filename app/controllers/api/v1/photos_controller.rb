@@ -22,7 +22,7 @@ class Api::V1::PhotosController < ApplicationController
     @first_photo = Photo.first
     @first_photo.count = @count
     @first_photo.save
-    render json: @photos.order
+    render json: @photos
   end
 
   def delete
