@@ -17,11 +17,12 @@ class Api::V1::PhotosController < ApplicationController
   end
 
   def index
-    @photos = Photo.all
+
     @count = Photo.count
-    @first_photo = Photo.first
-    @first_photo.count = @count
-    @first_photo.save
+    @first = Photo.first
+    @first.count = @count
+    @first.save
+    @photos = Photo.all.order('id asc')
     render json: @photos
   end
 
