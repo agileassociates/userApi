@@ -13,12 +13,16 @@ class Api::V1::PhotosController < ApplicationController
   end
 
   def new
-    
+
   end
 
   def index
     @photos = Photo.all
-    render json: @photos
+    @count = Photo.count
+    @first_photo = Photo.first
+    @first_photo.count = @count
+    @first_photo.save
+    render json: @photos.order
   end
 
   def delete
