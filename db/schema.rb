@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 20160906061606) do
   create_table "photos", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "url_suffix", limit: 50
+    t.integer  "count"
   end
 
   create_table "posts", force: :cascade do |t|
