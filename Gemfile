@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'devise'
 
+gem 'puma'
+gem 'foreman'
 gem 'rails_12factor'
 
 gem "active_model_serializers", github: "rails-api/active_model_serializers"
