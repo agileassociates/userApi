@@ -3,7 +3,8 @@ class Api::V1::PhotosController < ApplicationController
 
   def create
 
-    photo = Photo.new(:user_id => params[:photo][:user_id].to_i, :url_suffix => params[:photo][:url])
+    photo = Photo.new(:user_id => params[:photo][:user_id].to_i, :url_suffix => params[:photo][:url],
+      :user_profile => params[:photo][:user_profile])
     photo.url << photo.url_suffix
     @user = User.find(params[:user_id])
     photo.user_name = @user.email
