@@ -30,7 +30,7 @@ class Api::V1::PhotosController < ApplicationController
     #@photos = Photo.all.order('id asc')
     @photos = Photo.thumbs
     respond_to do |format|
-    format.json { render json: @photos.to_json}
+    format.json { render json: @photos}
       end
   end
 
