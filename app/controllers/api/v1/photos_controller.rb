@@ -27,8 +27,8 @@ class Api::V1::PhotosController < ApplicationController
     @first = Photo.first
     @first.count = @count
     @first.save
-    @photos = Photo.all.order('id asc').joins(:likes)
-    render json: @photos
+    @photos = Photo.all.order('id asc')
+    format.json { render json: @photos.to_json(:include => :likedata) }
   end
 
   def delete
