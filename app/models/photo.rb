@@ -1,5 +1,6 @@
 class Photo < ActiveRecord::Base
   after_initialize :default_values
+  has_many :likedata, dependent: :destroy
 
   private
     def default_values
