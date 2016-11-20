@@ -5,6 +5,7 @@ class Photo < ActiveRecord::Base
   private
     def default_values
       self.url ||= "https://d2udkby987yiki.cloudfront.net/"
+      self.thumbs ||= Photo.thumbs
     end
 end
 
