@@ -28,7 +28,9 @@ class Api::V1::PhotosController < ApplicationController
     @first.count = @count
     @first.save
     @photos = Photo.all.order('id asc')
+    respond_to do |format|
     format.json { render json: @photos }
+      end
   end
 
   def delete
