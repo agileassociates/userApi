@@ -27,9 +27,10 @@ class Api::V1::PhotosController < ApplicationController
     @first = Photo.first
     @first.count = @count
     @first.save
-    @photos = Photo.all.order('id asc')
+    #@photos = Photo.all.order('id asc')
+    @photos = Likedata.all
     respond_to do |format|
-    format.json { render json: @photos(:include => :likedata)}
+    format.json { render json: @photos}
       end
   end
 
