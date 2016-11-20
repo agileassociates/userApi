@@ -28,9 +28,9 @@ class Api::V1::PhotosController < ApplicationController
     @first.count = @count
     @first.save
     #@photos = Photo.all.order('id asc')
-    @photos = Photo.all
+    @photos = Photo.thumbs
     respond_to do |format|
-    format.json { render json: @photos.to_json(:include => :thumbs)}
+    format.json { render json: @photos.to_json}
       end
   end
 
