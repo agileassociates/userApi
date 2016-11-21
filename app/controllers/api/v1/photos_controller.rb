@@ -33,6 +33,12 @@ class Api::V1::PhotosController < ApplicationController
       end
   end
 
+  def like
+    @photo = Photo.find(params[:id])
+    @photo.likes = params[:photo][:likes]
+    @photo.save
+  end
+
   def delete
   end
 end
