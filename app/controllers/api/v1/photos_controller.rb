@@ -22,19 +22,26 @@ class Api::V1::PhotosController < ApplicationController
   end
 
   def index
-
     @count = Photo.count
     @first = Photo.first
     @first.count = @count
     @first.save
     @photos = Photo.all.order('id asc')
     render json: @photos
-
   end
 
-  def like
-    @photo = Photo.find(params[:id])
-    @photo.likes = params[:photo][:likes]
+  def liked
+    @photo = Photo.find(params[:photo][:photo_id])
+    @user_id = params[:photo][:user_id]
+    @photo.likes = (likes || {}).merge(@user_id => "yes")
+    @photo.save
+  end
+
+  def hated
+    @photo = Photo.find(params[:photo][:photo_id])
+    @user_id = params[:photo][:user_id]
+    sql = "update photos set likes = delete(likes, '#{@user_id}');"
+    ActiveRecord::Base.connection.execute(sql)
     @photo.save
   end
 
