@@ -35,7 +35,7 @@ class Api::V1::PhotosController < ApplicationController
     @user_id = params[:user_id]
     #@photo.likes = (likes || {}).merge(@user_id => "yes")
     #@photo.save
-    render @photo.likes 
+    render @photo.likes
   end
 
   def hated
