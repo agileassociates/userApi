@@ -4,7 +4,6 @@ class Photo < ActiveRecord::Base
   store_accessor :likes
 
   def likes
-    self.likes
   end
 
   private
