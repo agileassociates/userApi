@@ -46,6 +46,7 @@ class Api::V1::PhotosController < ApplicationController
 
   def hated
     @photo = Photo.find(params[:photo_id])
+    @photo_id = params[:photo_id]
     @user_id = params[:user_id]
     sql = "update photos set likes = delete(likes, '#{@user_id}') where id=#{@photo_id};"
     ActiveRecord::Base.connection.execute(sql)
