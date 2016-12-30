@@ -33,9 +33,10 @@ class Api::V1::PhotosController < ApplicationController
   def liked
     @photo = Photo.find(params[:photo_id])
     @user_id = params[:user_id]
+    @photo_id = params[:photo_id]
     sql = " update photos set likes = likes || '\"#{@user_id}\"=>\"yes\"'::hstore where id=#{@photo_id};"
     ActiveRecord::Base.connection.execute(sql)
-    
+
     if photo.save
       render json: photo
     else
