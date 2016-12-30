@@ -7,7 +7,10 @@ Rails.application.routes.draw do
       resources :users, :only => [:show, :create, :update, :destroy]
       resources :sessions, :only => [:create, :destroy]
       resources :posts, :only => [:index]
-      resources :photos, :only => [:create, :index, :liked, :hated]
+      resources :photos, :only => [:create, :index]
+
+      post 'photos/liked' => 'photos#liked'
+      post 'photos/hated' => 'photos#hated'
 
       post 'users/update' => 'users#update'
 
