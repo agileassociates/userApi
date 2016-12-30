@@ -35,7 +35,12 @@ class Api::V1::PhotosController < ApplicationController
     @user_id = params[:user_id]
     sql = " update photos set likes = likes || '\"#{@user_id}\"=>\"yes\"'::hstore where id=#{@photo_id};"
     ActiveRecord::Base.connection.execute(sql)
-    @photo.save
+    
+    if photo.save
+      render json: photo
+    else
+      render json: { errors: photo.errors }
+    end
   end
 
   def hated
@@ -43,7 +48,12 @@ class Api::V1::PhotosController < ApplicationController
     @user_id = params[:user_id]
     sql = "update photos set likes = delete(likes, '#{@user_id}');"
     ActiveRecord::Base.connection.execute(sql)
-    @photo.save
+
+    if photo.save
+      render json: photo
+    else
+      render json: { errors: photo.errors }
+    end
   end
 
   def delete
