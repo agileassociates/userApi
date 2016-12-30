@@ -33,8 +33,8 @@ class Api::V1::PhotosController < ApplicationController
   def liked
     @photo = Photo.find(params[:photo_id])
     @user_id = params[:user_id]
-    sql = " update photos set likes = likes || '\"#{@user_id}\"=>"yes"'::hstore where id=#{@photo_id};"
-    @photo.likes = (likes || {}).merge(@user_id => "yes")
+    sql = " update photos set likes = likes || '\"#{@user_id}\"=>\"yes\"'::hstore where id=#{@photo_id};"
+    ActiveRecord::Base.connection.execute(sql)
     @photo.save
   end
 
