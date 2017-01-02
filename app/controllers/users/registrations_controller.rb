@@ -11,11 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
  def create
    super
 
-   if resource.save
-     render json: resource
-   else
-     render json: { errors: resource.errors }
-   end
+   
  end
 
   # GET /resource/edit
