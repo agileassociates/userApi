@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    if resource.save
      render json: resource
    else
-     render json: resource.error.full_messages
+     render json: resource.errors.full_messages
    end
 
  end
