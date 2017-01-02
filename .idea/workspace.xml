@@ -61,8 +61,8 @@
       <file leaf-file-name="registrations_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/users/registrations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.04709576" vertical-offset="0" max-vertical-offset="1335">
-              <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.588697" vertical-offset="0" max-vertical-offset="1320">
+              <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -1031,8 +1031,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users/registrations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04709576" vertical-offset="0" max-vertical-offset="1335">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.588697" vertical-offset="0" max-vertical-offset="1320">
+          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
           <folding />
         </state>
       </provider>
