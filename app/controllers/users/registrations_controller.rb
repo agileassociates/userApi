@@ -14,7 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    super
 
    if resource.save!
-     render json: { errors: 'inavalid email/password' }
+     render json: flash
    end
 
  end
