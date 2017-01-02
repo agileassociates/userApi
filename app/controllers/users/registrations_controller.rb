@@ -1,5 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   skip_before_action :verify_authenticity_token
+  before_filter :configure_permitted_parameters
+
   respond_to :json
 
 
@@ -79,4 +81,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  protected
+
+  # my custom fields are :name, :heard_how
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:email, :password, :password_confirmation)
+    end
+  end
+
 end
