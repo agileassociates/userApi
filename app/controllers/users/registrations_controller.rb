@@ -13,6 +13,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
  def create
    super
 
+   if resource.save!
+     render json: { errors: 'inavalid email/password' }
+   end
 
  end
 
