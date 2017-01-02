@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
-  skip_before_action :verify_authenticity_token
+  #skip_before_action :verify_authenticity_token
 
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
@@ -30,7 +30,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    else
      clean_up_passwords resource
      set_minimum_password_length
-     render json: resource.errors.full_messages
+     respond_with resource
    end
  end
 
