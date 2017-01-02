@@ -15,10 +15,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
  def create
    super
 
-   if resource.save
-     render json: resource
-   else
-     render json: resource.errors.full_messages
+   if resource.errors
+     render json: resource.errors
+
    end
 
  end
