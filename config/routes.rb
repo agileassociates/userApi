@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
+
   namespace :api, defaults: { format: :json } do
     # We are going to list our resources here
     scope module: :v1 do
