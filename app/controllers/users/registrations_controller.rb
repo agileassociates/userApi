@@ -15,8 +15,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
  def create
    super
 
-   if resource.save!
-     render json: flash
+   if resource.save
+     render json: resource and return
+   else
+     render json: resource.errors
    end
 
  end
