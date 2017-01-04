@@ -20,7 +20,7 @@ class Api::V1::UsersController < ApplicationController
       render json: user, location: [:api, user]
     else
       if user.errors.any?
-        if user.errors[:email]?
+        if ! user.errors[:email].empty?
           render json: { errors: "Email: #{user.errors[:email]}"}
         else
           render json: { errors: "Invaid Password"}
