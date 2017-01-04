@@ -19,8 +19,12 @@ class Api::V1::UsersController < ApplicationController
     if user.save
       render json: user, location: [:api, user]
     else
-
-      render json: { errors: user.errors }
+      if
+      user.valid_email?
+      render json: { errors: "Invalid Email" }
+      else
+      user.valid_password?
+      render json: { errors: "Invaid Password"}
     end
   end
 
