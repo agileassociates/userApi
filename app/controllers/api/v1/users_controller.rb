@@ -25,6 +25,7 @@ class Api::V1::UsersController < ApplicationController
       else
       user.valid_password?
       render json: { errors: "Invaid Password"}
+      end
     end
   end
 
