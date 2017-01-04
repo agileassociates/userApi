@@ -23,7 +23,7 @@ class Api::V1::UsersController < ApplicationController
         if ! user.errors[:email].empty?
           render json: { errors: "Email: #{user.errors[:email]}"}
         else
-          render json: { errors: "Invaid Password"}
+          render json: { errors: "Password: #{user.errors[:password]}"}
         end
       end
     end
