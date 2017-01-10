@@ -48,7 +48,11 @@ class Api::V1::UsersController < ApplicationController
 
   def favorites
     @user = User.find(params[:id])
-    render @user.favorites
+    if @user
+      render @user.favorites
+    else
+      render json: { errors: user.errors }
+    end
   end
 
   private
