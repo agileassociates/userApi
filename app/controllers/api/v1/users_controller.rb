@@ -46,12 +46,32 @@ class Api::V1::UsersController < ApplicationController
     current_user.destroy
   end
 
-  def favorites
-    @user = User.find(params[:id])
-    if @user
-      render @user.favorites
+  def favor
+    @user = User.find(params[:user_id])
+    @user_id = params[:user_id]
+    @photo_id = params[:photo_id]
+    @photo_url = params[:photo_url]
+    sql = " update users set favorites = favorites || '\"#{@photo_id}\"=>\"#{@photo_url}\"'::hstore where id=#{@user_id};"
+    ActiveRecord::Base.connection.execute(sql)
+
+    if user.save
+      render json: user
     else
       render json: { errors: user.errors }
+    end
+  end
+
+  def unfavor
+    @user = User.find(params[:user_id])
+    @photo_id = params[:photo_id]
+    @user_id = params[:user_id]
+    sql = "update users set favorites = delete(favorites, '#{@photo_id}') where id=#{@user_id};"
+    ActiveRecord::Base.connection.execute(sql)
+
+    if @user.save
+      render json: @user
+    else
+      render json: { errors: @user.errors }
     end
   end
 

@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
       post 'users/update' => 'users#update'
 
-      get 'users/favorites' => 'users#favorites'
+      post 'users/favor' => 'users#favor'
+      post 'users/unfavor' => 'users#unfavor'
 
     end
   end
