@@ -46,6 +46,11 @@ class Api::V1::UsersController < ApplicationController
     current_user.destroy
   end
 
+  def favorites
+    @user = User.find(params[:id])
+    render @user.favorites
+  end
+
   private
 
   def user_params

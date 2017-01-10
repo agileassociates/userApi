@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       post 'photos/hated' => 'photos#hated'
 
       post 'users/update' => 'users#update'
+      
+      get 'users/favorites' => 'users#favorites'
 
     end
   end
