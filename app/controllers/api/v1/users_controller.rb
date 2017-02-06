@@ -47,7 +47,7 @@ class Api::V1::UsersController < ApplicationController
     @profile_prefix << @profile_suffix
     user.user_profile = @profile_prefix
 
-    if user.update(user_params)
+    if user.save
       render json: user, location: [:api, user]
     else
       render json: { errors: user.errors }
