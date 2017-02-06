@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       post 'users/favor' => 'users#favor'
       post 'users/unfavor' => 'users#unfavor'
 
+      post 'users/profile'
+
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

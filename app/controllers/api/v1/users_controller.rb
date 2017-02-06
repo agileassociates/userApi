@@ -40,7 +40,7 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  def user_profile
+  def profile
     user = User.find(params[:id])
     @profile_prefix = 'https://s3-us-west-1.amazonaws.com/truegrowthsf/profiles/'
     @profile_suffix = params[:url]
