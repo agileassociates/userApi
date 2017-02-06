@@ -30,8 +30,22 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    #user = User.find(params[:id])
     user = current_user
+
+    user.user_profile = params[:user_profile]
+    if user.update(user_params)
+      render json: user, location: [:api, user]
+    else
+      render json: { errors: user.errors }
+    end
+  end
+
+  def user_profile
+    user = User.find(params[:id])
+    @profile_prefix = 'https://s3-us-west-1.amazonaws.com/truegrowthsf/profiles/'
+    @profile_suffix = params[:url]
+    @profile_prefix << @profile_suffix
+    user.user_profile = @profile_prefix
 
     if user.update(user_params)
       render json: user, location: [:api, user]
@@ -78,7 +92,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :id)
+    params.require(:user).permit(:email, :password, :password_confirmation, :id, :user_profile)
   end
 
 end
