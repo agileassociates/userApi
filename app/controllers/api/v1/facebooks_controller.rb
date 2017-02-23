@@ -1,4 +1,4 @@
-class FacebookController < ApplicationController
+class FacebooksController < ApplicationController
   respond_to :json
 
   def show

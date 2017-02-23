@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
       post 'users/profile'
 
-      post 'facebook/show' => 'facebook#show'
+      post 'facebooks/show' => 'facebook#show'
 
     end
   end
