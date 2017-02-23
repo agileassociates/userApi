@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   respond_to :json
 
   def show
-    @book = Book.find(params[:id])
+    @book = Book.find_by id: (params[:id])
     if @book
       render json: @book
     else
