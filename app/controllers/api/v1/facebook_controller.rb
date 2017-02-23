@@ -1,4 +1,5 @@
 class FacebookController < ApplicationController
+  respond_to :json
 
   def show
     @facebook = Facebook.find(params[:id])
