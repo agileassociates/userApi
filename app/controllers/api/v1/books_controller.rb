@@ -8,7 +8,7 @@ class Api::V1::BooksController < ApplicationController
     else
       book = Book.new(book_params)
       if book.save
-        render json: book, location: [:api, book]
+        render json: book
       end
     end
   end
