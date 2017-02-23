@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
       post 'users/profile'
 
+      post 'facebook/show' => 'facebook#show'
+
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
