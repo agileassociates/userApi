@@ -9,7 +9,7 @@ class Api::V1::PhotosController < ApplicationController
 
     @count_check = params[:user_id]
 
-    if @count_check.count < 5
+    if @count_check.length < 5
       @user = User.find(params[:user_id])
       photo.user_name = @user.email
     else
