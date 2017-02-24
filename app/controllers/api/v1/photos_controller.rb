@@ -6,8 +6,13 @@ class Api::V1::PhotosController < ApplicationController
     photo = Photo.new(:user_id => params[:photo][:user_id].to_i, :url_suffix => params[:photo][:url],
       :user_profile => params[:photo][:user_profile])
     photo.url << photo.url_suffix
-    @user = User.find(params[:user_id])
-    photo.user_name = @user.email
+
+    if User.find(params[:user_id])
+      @user = User.find(params[:user_id])
+      photo.user_name = @user.email
+    else
+      photo.user_name = params[:user_id]
+      end
 
 
     if photo.save
